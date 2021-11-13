@@ -84,5 +84,20 @@ namespace LSA.Tests.str
                 Assert.True(Guid.TryParse(result, out var guidOut));
             }
         }
+
+        [Theory]
+        [InlineData("-h")]
+        [InlineData("--help")]
+        public void ShouldReturnHelp(string arg)
+        {
+            //arr
+            var args = new string[1] { arg };
+
+            //act
+            var result = Program.Process(args);
+
+            //assert
+            Assert.True(!string.IsNullOrEmpty(result));
+        }
     }
 }

@@ -34,7 +34,10 @@ namespace LSA.Str
                         returnValue = GuidNew();
                     }
                     break;
-
+                case "-h":
+                case "--help":
+                    returnValue = Help();
+                    break;
                 case "-l":
                 case "--lower":
                     returnValue = ToLower(args[1]);
@@ -60,5 +63,13 @@ namespace LSA.Str
         private static string ToUpper(string text) => text.ToUpper();
 
         private static string GuidNew() => Guid.NewGuid().ToString();
+
+        private static string Help() =>
+            @"str [OPTION] [TEXT]
+              -f --firstUpper -> Primeira letra em maiúsculo 
+              -g --guid [NUMBER, Default=1] -> Returns one or more guids as specified by arguments. The default quantity returned is 1.
+              -l --lower -> Return all lowercase letters.  
+              -u --upper -> Return all uppercase letters.  
+            ";
     }
 }
