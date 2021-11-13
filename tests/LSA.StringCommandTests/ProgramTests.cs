@@ -99,5 +99,22 @@ namespace LSA.StringCommandTests
             //assert
             Assert.True(!string.IsNullOrEmpty(result));
         }
+
+        
+        [Theory]
+        [InlineData("-y")]
+        [InlineData("")]
+        [InlineData(null)]
+        public void ShouldReturnInvalidArguments(string arg)
+        {
+            //arr
+            var args = new string[1] { arg };
+
+            //act
+            var result = Program.Process(args);
+
+            //assert
+            Assert.Contains("Invalid args", result);
+        }
     }
 }

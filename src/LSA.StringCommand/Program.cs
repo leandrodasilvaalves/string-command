@@ -54,9 +54,9 @@ namespace LSA.StringCommand
                         break;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                returnValue = $"ERROR: {ex.Message} \n\n {Help()}";
+                returnValue = $"Invalid args \n\n {Help()}";
             }
 
             return returnValue;
