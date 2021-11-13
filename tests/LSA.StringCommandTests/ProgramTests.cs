@@ -1,9 +1,9 @@
 using Xunit;
-using LSA.Str;
+using LSA.StringCommand;
 using System;
 using System.Linq;
 
-namespace LSA.Tests.str
+namespace LSA.StringCommandTests
 {
     public class ProgramTests
     {

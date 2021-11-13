@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LSA.Str
+namespace LSA.StringCommand
 {
     public static class Program
     {

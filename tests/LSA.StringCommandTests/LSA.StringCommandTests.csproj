@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\LSA.str\LSA.str.csproj" />
+    <ProjectReference Include="..\..\src\LSA.StringCommand\LSA.StringCommand.csproj" />
   </ItemGroup>
 
 </Project>
