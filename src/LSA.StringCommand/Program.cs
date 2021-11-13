@@ -12,45 +12,51 @@ namespace LSA.StringCommand
         public static string Process(string[] args)
         {
             string returnValue = string.Empty;
-
-            switch (args[0])
+            try
             {
-                case "-f":
-                case "--firstUpper":
-                    returnValue = FirstUpper(args[1]);
-                    break;
+                switch (args[0])
+                {
+                    case "-f":
+                    case "--firstUpper":
+                        returnValue = FirstUpper(args[1]);
+                        break;
 
-                case "-g":
-                case "--guid":
-                    if (args.Length >= 2 && int.TryParse(args[1], out var amount))
-                    {
-                        for (var i = 0; i < amount; i++)
+                    case "-g":
+                    case "--guid":
+                        if (args.Length >= 2 && int.TryParse(args[1], out var amount))
                         {
-                            returnValue += (i == amount -1) ? GuidNew() : $"{GuidNew()}\n";
+                            for (var i = 0; i < amount; i++)
+                            {
+                                returnValue += (i == amount - 1) ? GuidNew() : $"{GuidNew()}\n";
+                            }
                         }
-                    }
-                    else
-                    {
-                        returnValue = GuidNew();
-                    }
-                    break;
-                case "-h":
-                case "--help":
-                    returnValue = Help();
-                    break;
-                case "-l":
-                case "--lower":
-                    returnValue = ToLower(args[1]);
-                    break;
+                        else
+                        {
+                            returnValue = GuidNew();
+                        }
+                        break;
+                    case "-h":
+                    case "--help":
+                        returnValue = Help();
+                        break;
+                    case "-l":
+                    case "--lower":
+                        returnValue = ToLower(args[1]);
+                        break;
 
-                case "-u":
-                case "--upper":
-                    returnValue = ToUpper(args[1]);
-                    break;
+                    case "-u":
+                    case "--upper":
+                        returnValue = ToUpper(args[1]);
+                        break;
 
-                default:
-                    returnValue = "Invalid args";
-                    break;
+                    default:
+                        returnValue = $"Invalid args \n\n {Help()}";
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                returnValue = $"ERROR: {ex.Message} \n\n {Help()}";
             }
 
             return returnValue;
