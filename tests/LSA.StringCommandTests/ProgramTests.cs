@@ -28,6 +28,11 @@ namespace LSA.StringCommandTests
         [InlineData("--firstUpper", "hello world!", "Hello world!")]
         [InlineData("--firstUpper", "heLLo World!", "Hello world!")]
         [InlineData("--firstUpper", "Hello world!", "Hello world!")]
+        [InlineData("--firstUpper", " HELLO WORLD!", "Hello world!")]
+        [InlineData("--firstUpper", " HELLO WORLD! HELLO WORLD!", "Hello world! Hello world!")]
+        [InlineData("--firstUpper", " HELLO WORLD. HELLO WORLD.", "Hello world. Hello world.")]
+        [InlineData("--firstUpper", " HELLO WORLD? HELLO WORLD?", "Hello world? Hello world?")]
+        [InlineData("--firstUpper", " HELLO WORLD... HELLO WORLD...", "Hello world... Hello world...")]
         public void ShouldBeFirstUper(string arg1, string arg2, string expected)
         {
             //arr
